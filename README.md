@@ -2,7 +2,7 @@
 Repositorio para alojamiento de pruebas E2E
 
 ### Grupo 14
-Semana 5
+Semana 6
 
 ### Integrantes del equipo:
 
