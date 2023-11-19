@@ -1,11 +1,6 @@
 # GHOST_ABP_Grupo14_Semana6
 Repositorio para alojamiento de pruebas E2E
 
-# GHOST_ABP_Grupo14
-
-## Repositorio para alojamiento de pruebas E2E
-
-
 ### Grupo 14
 Semana 5
 
