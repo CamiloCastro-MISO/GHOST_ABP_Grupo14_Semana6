@@ -19,11 +19,15 @@ _________________
 
 A continuación, usted encontrará un enlace a un video con el paso a paso completo desde cero para la correcta ejecución de los tests, en Cypress, en caso tal de necesitar detalles adicionales sobre cómo ejecutar las pruebas:
 
+### Video toma de capturas de pantalla
+
+A continuación, usted encontrará un enlace a un video con el procedimiento realizado en la semana para habilitar la toma de capturas de pantalla, las decisiones tomadas respecto a la construcción del reporte y breve explicación de los resultados obtenidos en la semana:
+
 
 ______________
 ## Paso a paso para ejecutar las pruebas
 
-A continuación, usted encontrará una guía con los pasos necesarios para poder ejecutar exitosamente las pruebas de la aplicacion Ghost de forma local: 
+A continuación, usted encontrará una guía con los pasos necesarios para poder ejecutar exitosamente las pruebas de la aplicacion Ghost: 
 
 1. Clone el repositorio encontrado en  https://github.com/CamiloCastro-MISO/GHOST_ABP_Grupo14. Para esto, puede usar el comando: 
     
@@ -36,11 +40,14 @@ A continuación, usted encontrará una guía con los pasos necesarios para poder
 
 **Requisitos:**
 
-**Nota:** Asumimos que usted tiene instalada una copia local del CMS Ghost, sobre el cual se ejecutarán las pruebas. Si no lo ha instalado, consulte este enlace:
-https://ghost.org/docs/install/local/. Si ya lo tiene instalao, borre las configuraciones.
+**Nota:** existen dos versiones instaladas en EC2 de AWS:
+
+http://54.172.114.8:2368/ghost/#/signin -- **5.74**
+</br>
+http://52.91.116.86:2368/ghost/#/signin -- **6.0 Estilos Modificados**
 
 
-Es necesario tener instalado Python.
+**Es necesario tener instalado Python.**
 
 Una vez cumpla con estos requisitos:
 
