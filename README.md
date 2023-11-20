@@ -114,6 +114,11 @@ cd cypress
 node index.js
 ```
 
+## Nota: en este paso la fecha seguramente no coincida por lo cual debe indicar la carpeta correcta.
+```powershell
+Start-Process .\results\2023-11-19T11.29.23.921Z\report.html
+```
+
 **40 escenarios de prueba de la semana pasada modificados para la toma de screenshots**
 
 Ejecute el siguiente comando para correr los tests:
