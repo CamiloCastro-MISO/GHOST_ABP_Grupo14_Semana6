@@ -108,6 +108,8 @@ Ejecute el siguiente comando para crear el reporte:
 
 ```powershell
 cd cypress
+```
+```powershell
 node index.js
 ```
 
