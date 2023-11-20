@@ -9,64 +9,92 @@ let datetime = new Date().toISOString().replace(/:/g, ".");
 const logoPath = "milogo.png";
 
 const teamMembers = [
-    { name: "Bryan Camilo Castro", email: "bc.castro@uniandes.edu.co" },
-    { name: "Luis Alberto Mendoza Hernández", email: "l.mendozah@uniandes.edu.co" },
-    { name: "Hernán David Martínez Domínguez", email: "hd.martinezd1@uniandes.edu.co" }
+  { name: "Bryan Camilo Castro", email: "bc.castro@uniandes.edu.co" },
+  { name: "Luis Alberto Mendoza Hernández", email: "l.mendozah@uniandes.edu.co" },
+  { name: "Hernán David Martínez Domínguez", email: "hd.martinezd1@uniandes.edu.co" }
 ];
 
-function getPngFilesSync(directory, subFolders) {
-    let pngFiles = [];
-    for (const subFolder of subFolders) {
-        const fullPath = path.join(directory, subFolder);
-        try {
-            const files = fs.readdirSync(fullPath);
-            const filteredFiles = files
-                .filter(file => path.extname(file).toLowerCase() === '.png')
-                .map(file => path.join(subFolder, file));
+let resultInfo = {};
 
-            pngFiles = pngFiles.concat(filteredFiles);
-        } catch (err) {
-            console.log(`Error al leer el directorio ${subFolder}:`, err);
-        }
+async function compareScreenshots(pngFiles10, pngFiles40, ss10Dir, ss40Dir) {
+  for (let i = 0; i < pngFiles10.length; i++) {
+    const file10 = pngFiles10[i];
+    const file40 = pngFiles40[i];
+    const imgPath10 = path.join(ss10Dir, file10);
+    const imgPath40 = path.join(ss40Dir, file40);
+
+    if (fs.existsSync(imgPath10) && fs.existsSync(imgPath40)) {
+      const data = await compareImages(
+        fs.readFileSync(imgPath10),
+        fs.readFileSync(imgPath40),
+        config.options
+      );
+
+      resultInfo[file10] = {
+        isSameDimensions: data.isSameDimensions,
+        dimensionDifference: data.dimensionDifference,
+        rawMisMatchPercentage: data.rawMisMatchPercentage,
+        misMatchPercentage: data.misMatchPercentage,
+        diffBounds: data.diffBounds,
+        analysisTime: data.analysisTime
+      };
+
+      const resultFilePath = `./results/${datetime}/compare-${file10}`;
+      const resultDir = path.dirname(resultFilePath);
+      if (!fs.existsSync(resultDir)) {
+        fs.mkdirSync(resultDir, { recursive: true });
+      }
+
+      fs.writeFileSync(resultFilePath, data.getBuffer());
     }
-    return pngFiles;
+  }
+  console.log(resultInfo)
+  const resultsDir = `./results/${datetime}`;
+  fs.writeFileSync(`${resultsDir}/report.html`, createReport(datetime, resultInfo, teamMembers, logoPath));
+  fs.copyFileSync('./index.css', `${resultsDir}/index.css`);
+  fs.copyFileSync('./milogo.png', `${resultsDir}/milogo.png`);
+
+  console.log('------------------------------------------------------------------------------------');
+  console.log("Execution finished. Check the report under the results folder");
+  return resultInfo;
+}
+
+function getPngFilesSync(directory, subFolders) {
+  let pngFiles = [];
+  for (const subFolder of subFolders) {
+    const fullPath = path.join(directory, subFolder);
+    try {
+      const files = fs.readdirSync(fullPath);
+      const filteredFiles = files
+        .filter(file => path.extname(file).toLowerCase() === '.png')
+        .map(file => path.join(subFolder, file));
+
+      pngFiles = pngFiles.concat(filteredFiles);
+    } catch (err) {
+      console.log(`Error al leer el directorio ${subFolder}:`, err);
+    }
+  }
+  return pngFiles;
 }
 const screenshotsDir40 = './ss40';
 const subFolders40 = ['1-iniciar-sesion.feature', 'crear-miembro.feature'];
 const pngFiles40 = getPngFilesSync(screenshotsDir40, subFolders40);
-console.log(pngFiles40);
+//console.log(pngFiles40);
 
 console.log('------------------------------------------------------------------------------------');
 
 const screenshotsDir10 = './ss10';
 const subFolders10 = ['1-iniciar-sesion.feature', 'crear-miembro.feature'];
 const pngFiles10 = getPngFilesSync(screenshotsDir10, subFolders10);
-console.log(pngFiles10);
+//console.log(pngFiles10);
 
-// const data = await compareImages(
-//     fs.readFileSync(`./results/${datetime}/before-${b}.png`),
-//     fs.readFileSync(`./results/${datetime}/after-${b}.png`),
-//     options
-// );
-// resultInfo[b] = {
-//     isSameDimensions: data.isSameDimensions,
-//     dimensionDifference: data.dimensionDifference,
-//     rawMisMatchPercentage: data.rawMisMatchPercentage,
-//     misMatchPercentage: data.misMatchPercentage,
-//     diffBounds: data.diffBounds,
-//     analysisTime: data.analysisTime
-// }
-// fs.writeFileSync(`./results/${datetime}/compare-${b}.png`, data.getBuffer());
-
-// fs.writeFileSync(`./results/${datetime}/report.html`, createReport(datetime, resultInfo, teamMembers, logoPath));
-// fs.copyFileSync('./index.css', `./results/${datetime}/index.css`);
-// fs.copyFileSync('./milogo.png', `./results/${datetime}/milogo.png`);
-// console.log('------------------------------------------------------------------------------------');
-// console.log("Execution finished. Check the report under the results folder");
-
+(async () => {
+  const results = await compareScreenshots(pngFiles10, pngFiles40, 'ss10', 'ss40');
+  console.log(results);
+})();
 
 function browser(info, imageName) {
-    return `
+  return `
     <div class="container mt-4">
     <h2>Titulo<h2>
         <div class="card">
@@ -77,7 +105,7 @@ function browser(info, imageName) {
                 <div class="card h-100 text-center">
                   <div class="card-body">
                     <h5 class="card-title">Before</h5>
-                    <img class="card-img-bottom mx-auto d-block" src="before-${b}.png" alt="Before image"
+                    <img class="card-img-bottom mx-auto d-block" src="../../ss40/${imageName}" alt="Before image"
                       style="width: auto; max-width: 100%; height: auto;">
                     <!-- Botón para abrir modal 'Before' -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -91,7 +119,7 @@ function browser(info, imageName) {
                 <div class="modal-dialog modal-xl">
                   <div class="modal-content">
                     <div class="modal-body">
-                      <img src="before-${b}.png" alt="Before image" style="width: 100%;">
+                      <img src="../../ss40/${imageName}" alt="Before image" style="width: 100%;">
                     </div>
                   </div>
                 </div>
@@ -101,7 +129,7 @@ function browser(info, imageName) {
                 <div class="card h-100 text-center">
                   <div class="card-body">
                     <h5 class="card-title">After</h5>
-                    <img class="card-img-bottom mx-auto d-block" src="after-${b}.png" alt="After image"
+                    <img class="card-img-bottom mx-auto d-block" src="../../ss10/${imageName}" alt="After image"
                       style="width: auto; max-width: 100%; height: auto;">
                     <!-- Botón para abrir modal 'After' -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -114,7 +142,7 @@ function browser(info, imageName) {
                 <div class="modal-dialog modal-xl">
                   <div class="modal-content">
                     <div class="modal-body">
-                      <img src="after-${b}.png" alt="After image" style="width: 100%;">
+                      <img src="../../ss10/${imageName}" alt="After image" style="width: 100%;">
                     </div>
                   </div>
                 </div>
@@ -127,7 +155,7 @@ function browser(info, imageName) {
                 <div class="card h-100 text-center">
                   <div class="card-body">
                     <h5 class="card-title">Diff</h5>
-                    <img class="card-img-bottom mx-auto d-block" src="./compare-${b}.png" alt="Diff image"
+                    <img src="./compare-${imageName}"class="card-img-bottom mx-auto d-block"  alt="Diff image"
                       style="width: auto; max-width: 100%; height: auto;">
                     <!-- Botón para abrir modal 'Diff' -->
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -140,7 +168,7 @@ function browser(info, imageName) {
                 <div class="modal-dialog modal-xl">
                   <div class="modal-content">
                     <div class="modal-body">
-                      <img src="./compare-${b}.png" alt="Diff image" style="width: 100%;">
+                      <img src="./compare-${imageName}" alt="Diff image" style="width: 100%;">
                     </div>
                   </div>
                 </div>
@@ -203,9 +231,9 @@ function browser(info, imageName) {
 }
 
 function createReport(datetime, resInfo, teamMembers, logoPath) {
-    // ...
-    // En lugar de usar config.browsers, usamos las claves de resInfo para mapear a través de los resultados
-    return `
+  // ...
+  // En lugar de usar config.browsers, usamos las claves de resInfo para mapear a través de los resultados
+  return `
         <html html >
         <head>
             <title>Reporte de Regresión Visual - Ghost</title>
@@ -220,10 +248,10 @@ function createReport(datetime, resInfo, teamMembers, logoPath) {
                     </header>
                     <main>
                         ${Object.keys(resInfo).map(browserName => {
-        return browser(resInfo[browserName], browserName);
-    }).join('')}
+    return browser(resInfo[browserName], browserName);
+  }).join('')}
                     </main>
-                    <footer>
+                    <footer></footer>
                         <div class="team-info">
                             ${teamMembers.map(member => `<p>${member.name} (${member.email})</p>`).join('')}
                         </div>
