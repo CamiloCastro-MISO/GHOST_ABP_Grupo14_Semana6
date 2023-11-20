@@ -93,7 +93,7 @@ npm install
 Ejecute el siguiente comando para correr los tests:
 
 ```powershell
-escenario10-cypress
+npm run escenario10-cypress
 ```
 
 **10 escenarios de prueba para generar un reporte compartivo en la nueva versión de ghost**
@@ -101,7 +101,7 @@ escenario10-cypress
 Ejecute el siguiente comando para correr los tests:
 
 ```powershell
-escenario10-cypress-modified
+npm run escenario10-cypress-modified
 ```
 **Generar Reporte HTML**
 Ejecute el siguiente comando para crear el reporte:
@@ -115,7 +115,7 @@ npx cypress run
 Ejecute el siguiente comando para correr los tests:
 
 ```powershell
-escenario40-cypress
+npm run escenario40-cypress
 ```
 
 **40 escenarios de prueba de la semana pasada modificados para la toma de screenshots en la nueva versión de ghost**
@@ -123,6 +123,6 @@ escenario40-cypress
 Ejecute el siguiente comando para correr los tests:
 
 ```powershell
-escenario40-cypress-modified
+npm run escenario40-cypress-modified
 ```
 
