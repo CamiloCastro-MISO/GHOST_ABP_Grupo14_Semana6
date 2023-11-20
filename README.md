@@ -104,6 +104,7 @@ Ejecute el siguiente comando para correr los tests:
 npm run escenario10-cypress-modified
 ```
 **Generar Reporte HTML**
+
 Ejecute el siguiente comando para crear el reporte:
 
 ```powershell
