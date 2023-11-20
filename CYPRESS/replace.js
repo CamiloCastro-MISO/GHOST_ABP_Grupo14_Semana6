@@ -3,7 +3,7 @@ let mainUrl = process.argv[2]; // Toma el argumento de la línea de comandos
 if (!mainUrl) {
   console.error('No se proporcionó MAIN_URL');
   process.exit(1);
-} console.log("hola mundo" + process.argv);
+}
 const fs = require('fs');
 const path = './cypress/assets/config.json'; // Reemplaza con la ruta real a tu archivo JSON
 
