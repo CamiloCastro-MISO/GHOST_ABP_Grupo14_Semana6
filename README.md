@@ -114,7 +114,7 @@ cd cypress
 node index.js
 ```
 
-# Nota: en este paso la fecha seguramente no coincida por lo cual debe indicar la carpeta correcta.
+### Nota: en este paso la fecha seguramente no coincida por lo cual debe indicar la carpeta correcta.
 ```powershell
 Start-Process .\results\2023-11-19T11.29.23.921Z\report.html
 ```
