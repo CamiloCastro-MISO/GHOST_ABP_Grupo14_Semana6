@@ -96,7 +96,6 @@ const pngFiles10 = getPngFilesSync(screenshotsDir10, subFolders10);
 function browser(info, imageName) {
   return `
     <div class="container mt-4">
-    <h2>Titulo<h2>
         <div class="card">
           <div class="card-body">
             <!-- Primera fila con dos tarjetas -->
@@ -251,7 +250,7 @@ function createReport(datetime, resInfo, teamMembers, logoPath) {
     return browser(resInfo[browserName], browserName);
   }).join('')}
                     </main>
-                    <footer></footer>
+                    <footer>
                         <div class="team-info">
                             ${teamMembers.map(member => `<p>${member.name} (${member.email})</p>`).join('')}
                         </div>
