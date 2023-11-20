@@ -29,6 +29,8 @@ https://1drv.ms/f/s!Ajb63RmdbsrmkVxqZHAz-r4_Zpt2?e=Ghafj6
 
 A continuación, usted encontrará un enlace a un video con el procedimiento realizado en la semana para habilitar la toma de capturas de pantalla, las decisiones tomadas respecto a la construcción del reporte y breve explicación de los resultados obtenidos en la semana:
 
+https://1drv.ms/f/s!Ajb63RmdbsrmkVxqZHAz-r4_Zpt2?e=Ghafj6
+
 ![image](https://github.com/CamiloCastro-MISO/GHOST_ABP_Grupo14_Semana6/assets/141591369/d14650c0-5f2f-4341-9b56-300e8a5625a5)
 
 
