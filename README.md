@@ -19,6 +19,8 @@ _________________
 
 A continuación, usted encontrará un enlace a un video con el paso a paso completo desde cero para la correcta ejecución de los tests, en Cypress, en caso tal de necesitar detalles adicionales sobre cómo ejecutar las pruebas:
 
+https://1drv.ms/f/s!Ajb63RmdbsrmkVxqZHAz-r4_Zpt2?e=Ghafj6
+
 ![image](https://github.com/CamiloCastro-MISO/GHOST_ABP_Grupo14_Semana6/assets/141591369/aac18c6d-9608-414c-9f3b-e36f8f1a7c2d)
 
 
