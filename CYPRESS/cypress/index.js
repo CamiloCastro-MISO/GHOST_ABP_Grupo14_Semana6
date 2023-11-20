@@ -31,14 +31,14 @@ function getPngFilesSync(directory, subFolders) {
     }
     return pngFiles;
 }
-const screenshotsDir40 = './screenshots';
+const screenshotsDir40 = './ss40';
 const subFolders40 = ['1-iniciar-sesion.feature', 'crear-miembro.feature'];
 const pngFiles40 = getPngFilesSync(screenshotsDir40, subFolders40);
 console.log(pngFiles40);
 
 console.log('------------------------------------------------------------------------------------');
 
-const screenshotsDir10 = './screenshots-10';
+const screenshotsDir10 = './ss10';
 const subFolders10 = ['1-iniciar-sesion.feature', 'crear-miembro.feature'];
 const pngFiles10 = getPngFilesSync(screenshotsDir10, subFolders10);
 console.log(pngFiles10);

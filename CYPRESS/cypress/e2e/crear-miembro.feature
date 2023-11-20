@@ -1,5 +1,5 @@
 @staff
-Feature: Funcionalidad crear miembros del sitio
+Feature: crear miembro sitio
     Scenario: Crear miembro del sitio con el usuario del administrador(add yourself)
         Given Un usuario se encuentra en la pagina de inicio e inicia sesion en Ghost
         When el usuario se dirige a la seccion members del sitio

@@ -5,7 +5,8 @@ class LoginPage {
 
     takeScreenshot() {
         cy.wait(500);
-        cy.screenshot();
+        cy.screenshot("sshot");
+        cy.wait(1000);
     }
 
     visit() {
@@ -30,20 +31,20 @@ class LoginPage {
 
     login(email, password) {
         cy.get('input#identification').type(email);
-        cy.wait(1000)
+        cy.wait(1000);
         this.takeScreenshot();
         cy.get('input#password').type(password);
-        cy.wait(1000)
+        cy.wait(1000);
         this.takeScreenshot();
         cy.get('button[data-test-button="sign-in"]').click();
-        cy.wait(1000)
+        cy.wait(1000);
         this.takeScreenshot();
     }
 
     validate(text) {
         cy.wait(1000);
         cy.get('p.main-error').contains(text);
-        this.takeScreenshot(); 
+        this.takeScreenshot();
 
     }
 }

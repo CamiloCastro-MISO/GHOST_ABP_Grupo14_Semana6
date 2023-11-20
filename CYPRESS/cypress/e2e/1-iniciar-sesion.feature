@@ -1,5 +1,5 @@
 @login
-Feature: Funcionalidad de inicio de sesion en Ghost
+Feature: inicio de sesion Ghost
   @loginFallido1
   Scenario: Usuario inicia sesion con usuario y contrasena incorrectas
     Given Un usuario se encuentra en la pagina de inicio de sesion de Ghost

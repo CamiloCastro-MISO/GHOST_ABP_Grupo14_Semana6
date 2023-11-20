@@ -14,47 +14,47 @@ class PageItem {
     visit() {
         cy.visit(config.pages_url);
         this.takeScreenshot();
-        cy.wait(1000)
+        cy.wait(1000);
     }
 
     visitDetail() {
         cy.visit(config.new_page_url);
         this.takeScreenshot();
-        cy.wait(1000)
+        cy.wait(1000);
     }
 
     fillPage() {
         cy.get('textarea.gh-editor-title').type('Title');
         this.takeScreenshot();
-        cy.wait(1000)
+        cy.wait(1000);
         cy.get('div.kg-prose').type('Text');
         this.takeScreenshot();
-        cy.wait(1000)
+        cy.wait(1000);
     }
 
     submitPublish() {
         cy.get('button[data-test-button="publish-flow"]').click();
         this.takeScreenshot();
-        cy.wait(1000)
+        cy.wait(1000);
     }
 
     submitPreview() {
         cy.get('button[data-test-button="publish-preview"]').click();
         this.takeScreenshot();
-        cy.wait(1000)
+        cy.wait(1000);
     }
 
     submitContinuePublish() {
         cy.get('button[data-test-button="continue"]').click();
         this.takeScreenshot();
-        cy.wait(1000)
+        cy.wait(1000);
     }
 
     submitConfirmPublish() {
-        cy.wait(1000)
+        cy.wait(1000);
         cy.get('[data-test-button="publish-flow"]').click({ force: true });
         this.takeScreenshot();
-        cy.wait(1000)
+        cy.wait(1000);
     }
 
     goToCreatePage() {

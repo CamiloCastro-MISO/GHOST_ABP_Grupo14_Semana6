@@ -6,7 +6,8 @@ class MemberItem {
 
     takeScreenshot() {
         cy.wait(500);
-        cy.screenshot();
+        cy.screenshot("sshot");
+        cy.wait(1000);
     }
 
     checkMainPage() {
@@ -49,7 +50,7 @@ class MemberItem {
             cy.get('button[data-test-button="save"]').click();
             this.takeScreenshot();
             cy.wait(1000);
-        } catch (error){
+        } catch (error) {
             console.log(error);
             this.takeScreenshot();
             cy.wait(1000);

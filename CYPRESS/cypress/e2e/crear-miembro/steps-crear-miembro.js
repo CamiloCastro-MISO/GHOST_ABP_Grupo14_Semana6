@@ -16,7 +16,7 @@ const memberItem = new MemberItem();
 
 Given('Un usuario se encuentra en la pagina de inicio e inicia sesion en Ghost', () => {
     memberItem.checkMainPage();
-    cy.wait(1000)
+    cy.wait(1000);
 });
 
 When('el usuario se dirige a la seccion members del sitio', () => {
@@ -69,12 +69,12 @@ Then('el usuario da click en el boton Leave', () => {
 
 Then('el usuario ve una tabla con el usuario admin agregado', () => {
     memberItem.validateMember('admin', config.username);
-    cy.wait(1000)
+    cy.wait(1000);
 });
 
 Then('el usuario ve una tabla con el usuario agregado', () => {
     memberItem.validateMember(name, email);
-    cy.wait(1000)
+    cy.wait(1000);
 });
 
 

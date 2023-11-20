@@ -10,8 +10,8 @@ module.exports = {
     },
     specPattern: "**/*.feature",
   },
-  screenshotsFolder: process.env.SCREENSHOTS_FOLDER,
-  //scrollBehavior: false,
-  scrollBehavior: 'nearest'
+  screenshotsFolder: "cypress/screenshots",
+  scrollBehavior: 'nearest',
+  trashAssetsBeforeRuns: false
 };
 
