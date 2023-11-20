@@ -107,7 +107,8 @@ npm run escenario10-cypress-modified
 Ejecute el siguiente comando para crear el reporte:
 
 ```powershell
-npx cypress run
+cd cypress
+node index.js
 ```
 
 **40 escenarios de prueba de la semana pasada modificados para la toma de screenshots**
