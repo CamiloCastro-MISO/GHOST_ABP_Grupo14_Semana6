@@ -49,7 +49,7 @@ A continuación, usted encontrará una guía con los pasos necesarios para poder
 
 **Requisitos:**
 
-**Nota:** existen dos versiones instaladas en EC2 de AWS:
+**Nota:** existen dos versiones instaladas en AWS ElasticBeanstalk:
 
 http://54.172.114.8:2368/ghost/#/signin -- **5.74**
 </br>
