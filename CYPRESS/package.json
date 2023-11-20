@@ -1,0 +1,24 @@
+{
+  "name": "bdd-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "replace-json": "node replace.js",
+    "escenario10-cypress": "set SCREENSHOTS_FOLDER=cypress/ss10 && node backup-replace.js && npm run replace-json \"http://52.91.116.86\" && npx cypress run --spec ./cypress/e2e/1-iniciar-sesion.feature && npx cypress run --spec ./cypress/e2e/crear-miembro.feature",
+    "escenario40-cypress": "set SCREENSHOTS_FOLDER=cypress/ss40 && node backup-replace.js && npm run replace-json \"http://54.172.114.8\" && npx cypress run --spec ./cypress/e2e/1-iniciar-sesion.feature && npx cypress run --spec ./cypress/e2e/crear-miembro.feature"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.1.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "resemblejs": "^5.0.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "step_definitions": "cypress/e2e/**/"
+  }
+}
