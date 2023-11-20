@@ -37,7 +37,7 @@ A continuación, usted encontrará una guía con los pasos necesarios para poder
 
 1. Clone el repositorio encontrado en https://github.com/CamiloCastro-MISO/GHOST_ABP_Grupo14_Semana6. Para esto, puede usar el comando: 
     ```bash
-    git clone https://github.com/CamiloCastro-MISO/GHOST_ABP_Grupo14](https://github.com/CamiloCastro-MISO/GHOST_ABP_Grupo14_Semana6.git
+    git clone https://github.com/CamiloCastro-MISO/GHOST_ABP_Grupo14_Semana6.git
     ```
    
 
