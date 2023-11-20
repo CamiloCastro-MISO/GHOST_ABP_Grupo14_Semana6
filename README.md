@@ -29,10 +29,9 @@ ______________
 
 A continuación, usted encontrará una guía con los pasos necesarios para poder ejecutar exitosamente las pruebas de la aplicacion Ghost: 
 
-1. Clone el repositorio encontrado en  https://github.com/CamiloCastro-MISO/GHOST_ABP_Grupo14. Para esto, puede usar el comando: 
-    
+1. Clone el repositorio encontrado en https://github.com/CamiloCastro-MISO/GHOST_ABP_Grupo14_Semana6. Para esto, puede usar el comando: 
     ```bash
-    git clone https://github.com/CamiloCastro-MISO/GHOST_ABP_Grupo14
+    git clone https://github.com/CamiloCastro-MISO/GHOST_ABP_Grupo14](https://github.com/CamiloCastro-MISO/GHOST_ABP_Grupo14_Semana6.git
     ```
    
 
@@ -75,19 +74,45 @@ cd .\CYPRESS\
 npm install
 ```
 
-5. Ejecute el siguiente comando para correr los tests:
+## Existen varios tipos de test para esta entrega, por tal motivo le enunciamos los pasos necesarios para ello.
+
+## Nota: por favor ejecute las pruebas en el orden que se mencionan en el tutorial.
+
+**10 escenarios de prueba para generar un reporte compartivo**
+
+Ejecute el siguiente comando para correr los tests:
+
+```powershell
+escenario10-cypress
+```
+
+**10 escenarios de prueba para generar un reporte compartivo en la nueva versión de ghost**
+
+Ejecute el siguiente comando para correr los tests:
+
+```powershell
+escenario10-cypress-modified
+```
+**Generar Reporte HTML**
+Ejecute el siguiente comando para crear el reporte:
 
 ```powershell
 npx cypress run
 ```
 
-**Opcional:** Si quiere utilizar la interfaz gráfica de Cypress, remplace “run” por “open”:
+**40 escenarios de prueba de la semana pasada modificados para la toma de screenshots**
+
+Ejecute el siguiente comando para correr los tests:
 
 ```powershell
-npx cypress open
+escenario40-cypress
 ```
 
-Con estos pasos, usted debería estar viendo la ejecución de los tests en consola o en la aplicación de Cypress en caso de que haya optado por esta opción.
-______________________________
+**40 escenarios de prueba de la semana pasada modificados para la toma de screenshots en la nueva versión de ghost**
 
-Con estos pasos, usted debería estar viendo la ejecución de los tests en el navegador Chrome.
+Ejecute el siguiente comando para correr los tests:
+
+```powershell
+escenario40-cypress-modified
+```
+
