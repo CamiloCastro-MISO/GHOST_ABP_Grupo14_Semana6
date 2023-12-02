@@ -49,12 +49,6 @@ A continuación, usted encontrará una guía con los pasos necesarios para poder
 
 **Requisitos:**
 
-**Nota:** existen dos versiones instaladas en AWS ElasticBeanstalk:
-
-http://54.172.114.8:2368/ghost/#/signin -- **5.74**
-</br>
-http://52.91.116.86:2368/ghost/#/signin -- **6.0 Estilos Modificados**
-
 
 **Es necesario tener instalado Python.**
 
